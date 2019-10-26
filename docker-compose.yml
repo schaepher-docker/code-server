@@ -1,0 +1,21 @@
+version: "3"
+services:
+    code-server:
+        build: ./code-server
+        container_name: code-server
+        command: --allow-http --password "xxxxxx" --extensions-dir /home/coder/extension --user-data-dir /home/coder/user-data
+        restart: always
+        ports:
+            - "20010:8443"
+            - "20011:4000"
+        volumes:
+            - project:/home/coder/project:rw
+            - extension:/home/coder/extension:rw
+            - user-data:/home/coder/user-data:rw
+            - ssh:/home/coder/.ssh:rw
+
+volumes:
+    project:
+    extension:
+    user-data:
+    ssh:
