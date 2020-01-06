@@ -3,8 +3,11 @@ services:
     code-server:
         build: ./code-server
         container_name: code-server
-        command: --allow-http --password "xxxxxx" --extensions-dir /home/coder/extension --user-data-dir /home/coder/user-data
         restart: always
+        environment:
+            PASSWORD: xxxxx 
+            GIT_USERNAME: username
+            GIT_EMAIL: email
         ports:
             - "20010:8443"
             - "20011:4000"
