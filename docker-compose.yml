@@ -2,12 +2,12 @@ version: "3"
 services:
     code-server:
         build: ./code-server
-        container_name: code-server
+        container_name: code
         restart: always
         environment:
-            PASSWORD: xxxxx 
+            PASSWORD: xxxxx
             GIT_USERNAME: username
-            GIT_EMAIL: email
+            GIT_EMAIL: email@xxx.com
         ports:
             - "20010:8443"
             - "20011:4000"
