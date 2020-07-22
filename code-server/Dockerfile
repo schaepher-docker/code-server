@@ -19,6 +19,15 @@ RUN chmod a+x /entrypoint.sh && \
 	mkdir -p /var/run/supervisor && \
 	chown coder:coder /var/run/supervisor
 
+RUN cd /home/coder && \
+    mkdir project extension user-data .ssh && \
+    chown -R coder:coder project extension user-data .ssh
+
+VOLUME /home/coder/project
+VOLUME /home/coder/extension
+VOLUME /home/coder/user-data
+VOLUME /home/coder/.ssh
+
 USER coder
 
 ENTRYPOINT ["/entrypoint.sh"]
